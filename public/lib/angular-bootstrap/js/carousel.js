@@ -230,8 +230,8 @@ angular.module('ktp-ui.bootstrap.carousel', ['ktp-ui.bootstrap.transition'])
     "        <li ng-repeat=\"slide in slides track by $index\" ng-class=\"{active: isActive(slide)}\" ng-click=\"select(slide)\"></li>\n" +
     "    </ol>\n" +
     "    <div class=\"carousel-inner\" ng-transclude></div>\n" +
-    "    <a class=\"left carousel-control\" ng-click=\"prev()\" ng-show=\"slides.length > 1\"><span class=\"glyphicon glyphicon-chevron-left\"></span></a>\n" +
-    "    <a class=\"right carousel-control\" ng-click=\"next()\" ng-show=\"slides.length > 1\"><span class=\"glyphicon glyphicon-chevron-right\"></span></a>\n" +
+    "    <a class=\"left carousel-control\" ng-click=\"prev()\" ng-show=\"slides.length > 1\"><span class=\"glyphicon glyphicon-chevron-left\">&lt;</span></a>\n" +
+    "    <a class=\"right carousel-control\" ng-click=\"next()\" ng-show=\"slides.length > 1\"><span class=\"glyphicon glyphicon-chevron-right\">&gt;</span></a>\n" +
     "</div>\n" +
     "",
     scope: {
