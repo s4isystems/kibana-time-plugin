@@ -15,6 +15,7 @@ steps:
     script: |
       git clone https://github.com/elastic/kibana.git
       pwd
+      ls
     workingDirectory: '${Build.SourcesDirectory}/../..'
 
 - task: NodeTool@0
