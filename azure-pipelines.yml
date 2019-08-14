@@ -15,6 +15,11 @@ steps:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 
+- task: Bower@0
+  inputs:
+    command: 'install'
+    bowerjson: 'bower.json'
+
 - script: |
     yarn
     yarn run build
