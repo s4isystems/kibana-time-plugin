@@ -9,6 +9,13 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+strategy:
+  matrix:
+    kibana_6_5_3:
+      kibana_version: 6.5.3
+      kibana_branch: 6.5
+      node_version: 8.14.0
+
 # https://www.elastic.co/guide/en/kibana/6.7/development-plugin-resources.html
 # The Kibana directory must be named kibana, and your plugin directory must be 
 # located within the sibling kibana-extra folder, for example:
@@ -24,12 +31,16 @@ steps:
 - task: CmdLine@2
   displayName: 'Clone Kibana'
   inputs:
-    script: 'git clone --depth 1 --branch 6.5 https://github.com/elastic/kibana.git $(Pipeline.Workspace)/kibana'
+    script: 'git clone --depth 1 --branch $(kibana_branch) https://github.com/elastic/kibana.git $(Pipeline.Workspace)/kibana'
+
+- task: CmdLine@2
+  inputs:
+    script: 'jq'
 
 - task: NodeTool@0
   displayName: 'Install Node.js'
   inputs:
-    versionSpec: '8.14.0'
+    versionSpec: '$(node_version)'
 
 - task: YarnInstaller@3
   displayName: 'Install Yarn'
