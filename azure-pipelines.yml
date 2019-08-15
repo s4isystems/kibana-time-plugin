@@ -55,7 +55,8 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy build artifacts'
   inputs:
-    contents: 'build/*.zip'
+    sourceFolder: '$(Build.SourcesDirectory)/build'
+    contents: '*.zip'
     targetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
