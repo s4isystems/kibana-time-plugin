@@ -9,12 +9,23 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+# https://www.elastic.co/guide/en/kibana/6.7/development-plugin-resources.html
+# The Kibana directory must be named kibana, and your plugin directory must be 
+# located within the sibling kibana-extra folder, for example:
+# .
+# ├── kibana
+# ├── kibana-extra/foo-plugin
+# └── kibana-extra/bar-plugin
+
 steps:
+- checkout: self
+  path: kibana-extra
+
 - task: CmdLine@2
   displayName: 'Clone Kibana'
   inputs:
     script: git clone --depth 1 --branch 6.5 https://github.com/elastic/kibana.git
-    workingDirectory: '${Build.SourcesDirectory}/../../..'
+    #workingDirectory: '${Build.SourcesDirectory}/../../..'
 
 - task: NodeTool@0
   displayName: 'Install Node.js'
