@@ -13,11 +13,7 @@ steps:
 - task: CmdLine@2
   displayName: 'clone kibana'
   inputs:
-    script: |
-      git clone https://github.com/elastic/kibana.git
-      cd kibana
-      git checkout 6.5
-    workingDirectory: '${Build.SourcesDirectory}/../../..'
+    script: git clone --depth 1 --branch 6.5 https://github.com/elastic/kibana.git ${Build.SourcesDirectory}/../../kibana
 
 - task: NodeTool@0
   inputs:
@@ -41,6 +37,8 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
+      la -la
+      la -la node_modules
       ls -la node_modules/.bin
 
 - task: Yarn@3
