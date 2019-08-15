@@ -13,7 +13,7 @@ steps:
 - task: CmdLine@2
   displayName: 'clone kibana'
   inputs:
-    script: git clone --depth 1 --branch 6.5 https://github.com/elastic/kibana.git ${Build.SourcesDirectory}/../../kibana
+    script: 'git clone --depth 1 --branch 6.5 https://github.com/elastic/kibana.git ${Build.SourcesDirectory}/../../kibana'
 
 - task: NodeTool@0
   inputs:
