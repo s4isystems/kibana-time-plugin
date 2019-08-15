@@ -14,18 +14,9 @@ steps:
   displayName: 'clone kibana'
   inputs:
     script: |
-      pwd
-      ls -la
-
-- task: CmdLine@2
-  displayName: 'clone kibana'
-  inputs:
-    script: |
       git clone https://github.com/elastic/kibana.git
       cd kibana
       git checkout 6.5
-      pwd
-      ls -la
     workingDirectory: '${Build.SourcesDirectory}/../../..'
 
 - task: NodeTool@0
@@ -38,19 +29,21 @@ steps:
     command: 'install'
     bowerjson: 'bower.json'
 
-# - script: |
-#     yarn
-#     yarn run build
-#   displayName: 'npm install and build'
-
 - task: YarnInstaller@3
   inputs:
     versionSpec: '1.x'
 
 - task: Yarn@3
   inputs:
+    projectDirectory: '${Build.SourcesDirectory}'
     arguments: 'kbn bootstrap'
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      ls -la node_modules/.bin
 
 - task: Yarn@3
   inputs:
+    projectDirectory: '${Build.SourcesDirectory}'
     arguments: 'run build'
