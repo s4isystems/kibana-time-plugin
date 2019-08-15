@@ -61,3 +61,9 @@ steps:
   displayName: 'Build plugin'
   inputs:
     arguments: 'run build'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
