@@ -24,8 +24,11 @@ steps:
 - task: CmdLine@2
   displayName: 'Clone Kibana'
   inputs:
-    script: git clone --depth 1 --branch 6.5 https://github.com/elastic/kibana.git
-    #workingDirectory: '${Build.SourcesDirectory}/../../..'
+    script: |
+      git clone --depth 1 --branch 6.5 https://github.com/elastic/kibana.git
+      pwd
+      ls -la
+    #workingDirectory: $(Build.SourcesDirectory)
 
 - task: NodeTool@0
   displayName: 'Install Node.js'
