@@ -28,7 +28,7 @@ steps:
       git clone --depth 1 --branch 6.5 https://github.com/elastic/kibana.git
       pwd
       ls -la
-    #workingDirectory: $(Build.SourcesDirectory)
+    workingDirectory: $(Pipeline.Workspace)
 
 - task: NodeTool@0
   displayName: 'Install Node.js'
