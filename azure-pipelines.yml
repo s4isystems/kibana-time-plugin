@@ -39,4 +39,8 @@ steps:
 
 - task: Yarn@3
   inputs:
+    arguments: 'kbn bootstrap'
+
+- task: Yarn@3
+  inputs:
     arguments: 'run build'
