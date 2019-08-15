@@ -26,7 +26,7 @@ steps:
       git checkout 6.5
       pwd
       ls -la
-    workingDirectory: '${Build.SourcesDirectory}/../..'
+    workingDirectory: '${Build.SourcesDirectory}/../../..'
 
 - task: NodeTool@0
   inputs:
