@@ -28,7 +28,15 @@ steps:
     command: 'install'
     bowerjson: 'bower.json'
 
-- script: |
-    yarn
-    yarn run build
-  displayName: 'npm install and build'
+# - script: |
+#     yarn
+#     yarn run build
+#   displayName: 'npm install and build'
+
+- task: YarnInstaller@3
+  inputs:
+    versionSpec: '1.x'
+
+- task: Yarn@3
+  inputs:
+    arguments: 'run build'
