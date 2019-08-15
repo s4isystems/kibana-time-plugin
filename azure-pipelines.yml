@@ -19,7 +19,7 @@ pool:
 
 steps:
 - checkout: self
-  path: kibana-extra
+  path: kibana-extra/kibana-time-plugin
 
 - task: CmdLine@2
   displayName: 'Clone Kibana'
