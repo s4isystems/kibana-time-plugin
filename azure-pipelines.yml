@@ -66,3 +66,11 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
+- task: GitHubRelease@0
+  inputs:
+    gitHubConnection: 'GitHub release'
+    repositoryName: '$(Build.Repository.Name)'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'auto'
+    compareWith: 'lastFullRelease'
