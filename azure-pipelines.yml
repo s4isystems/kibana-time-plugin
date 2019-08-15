@@ -31,18 +31,11 @@ steps:
     versionSpec: '1.x'
 
 - task: Yarn@3
-  inputs:
-    projectDirectory: '${Build.SourcesDirectory}'
-    arguments: 'kbn bootstrap'
-
-- task: CmdLine@2
-  inputs:
-    script: |
-      la -la
-      la -la node_modules
-      ls -la node_modules/.bin
 
 - task: Yarn@3
   inputs:
-    projectDirectory: '${Build.SourcesDirectory}'
+    arguments: 'run kbn bootstrap'
+
+- task: Yarn@3
+  inputs:
     arguments: 'run build'
