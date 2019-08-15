@@ -26,8 +26,8 @@ steps:
   inputs:
     versionSpec: '1.x'
 
-- task: Yarn@3
-  displayName: 'Install npm dependencies'
+# - task: Yarn@3
+#   displayName: 'Install npm dependencies'
 
 - task: Yarn@3
   displayName: 'Kibana bootstrap'
