@@ -16,6 +16,9 @@ strategy:
       kibana_branch: 6.5
       node_version: 8.14.0
 
+variables:
+  build_version: 1.0$(Rev:.r)-$(kibana_version)
+
 # https://www.elastic.co/guide/en/kibana/6.7/development-plugin-resources.html
 # The Kibana directory must be named kibana, and your plugin directory must be 
 # located within the sibling kibana-extra folder, for example:
@@ -32,11 +35,6 @@ steps:
   displayName: 'Clone Kibana'
   inputs:
     script: 'git clone --depth 1 --branch $(kibana_branch) https://github.com/elastic/kibana.git $(Pipeline.Workspace)/kibana'
-
-- task: CmdLine@2
-  displayName: 'Set Kibana version'
-  inputs:
-    script: mv package.json package.json.bak && jq '.version = "$(kibana_version)"' package.json.bak > package.json
 
 - task: NodeTool@0
   displayName: 'Install Node.js'
@@ -58,6 +56,16 @@ steps:
   inputs:
     command: 'install'
     bowerjson: 'bower.json'
+
+- task: Yarn@3
+  displayName: 'Set version'
+  inputs:
+    arguments: 'version --new-version $(build_version)'
+
+- task: CmdLine@2
+  displayName: 'Set Kibana version'
+  inputs:
+    script: mv package.json package.json.bak && jq '.kibana.version = "$(kibana_version)"' package.json.bak > package.json
 
 - task: Yarn@3
   displayName: 'Build plugin'
