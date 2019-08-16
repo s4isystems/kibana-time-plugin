@@ -53,9 +53,9 @@ steps:
     bowerjson: 'bower.json'
 
 - task: Yarn@3
-  displayName: 'Set version'
+  displayName: 'Set plugin version'
   inputs:
-    arguments: 'version --new-version $(build_version)'
+    arguments: 'version --new-version $(build_version) --no-git-tag-version'
 
 - task: CmdLine@2
   displayName: 'Set Kibana version'
