@@ -1,3 +1,4 @@
+ARG KIBANA_VERSION=latest
 FROM kibana:$KIBANA_VERSION
 
 RUN ./bin/kibana-plugin install file:///build/*.zip --no-optimize
