@@ -31,6 +31,10 @@ steps:
   path: kibana-extra/kibana-time-plugin
 
 - task: CmdLine@2
+  inputs:
+    script: /usr/bin/docker -v
+
+- task: CmdLine@2
   displayName: 'Clone Kibana'
   inputs:
     script: 'git clone --depth 1 --branch $(kibana_branch) https://github.com/elastic/kibana.git $(Pipeline.Workspace)/kibana'
