@@ -30,15 +30,6 @@ steps:
 - checkout: self
   path: kibana-extra/kibana-time-plugin
 
-- task: CmdLine@2
-  inputs:
-    script: /usr/bin/docker -v
-
-- task: CmdLine@2
-  displayName: 'Clone Kibana'
-  inputs:
-    script: 'git clone --depth 1 --branch $(kibana_branch) https://github.com/elastic/kibana.git $(Pipeline.Workspace)/kibana'
-
 - task: NodeTool@0
   displayName: 'Install Node.js'
   inputs:
@@ -48,6 +39,16 @@ steps:
   displayName: 'Install Yarn'
   inputs:
     versionSpec: '1.x'
+
+- task: DockerInstaller@0
+  displayName: 'Install Docker'
+  inputs:
+    dockerVersion: '17.09.0-ce'
+
+- task: CmdLine@2
+  displayName: 'Clone Kibana'
+  inputs:
+    script: 'git clone --depth 1 --branch $(kibana_branch) https://github.com/elastic/kibana.git $(Pipeline.Workspace)/kibana'
 
 - task: Yarn@3
   displayName: 'Kibana bootstrap'
