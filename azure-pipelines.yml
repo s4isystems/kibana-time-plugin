@@ -67,13 +67,18 @@ steps:
   inputs:
     arguments: 'run build'
 
-- task: docker@1
-  displayName: 'Test plugin installation'
+# - task: docker@1
+#   displayName: 'Test plugin installation'
+#   inputs:
+#     command: 'Run an image'
+#     imageName: 'kibana:$(kibana_version)'
+#     volumes: '$(Build.BinariesDirectory)/build:/build'
+#     containerCommand: 'bin/kibana-plugin install file:///build/*.zip'
+
+- task: Docker@2
   inputs:
-    command: 'Run an image'
-    imageName: 'kibana:$(kibana_version)'
-    volumes: '$(Build.BinariesDirectory)/build:/build'
-    containerCommand: 'bin/kibana-plugin install file:///build/*.zip'
+    command: 'build'
+    arguments: 'KIBANA_VERSION=$(kibana_version)'
 
 - task: CopyFiles@2
   displayName: 'Copy build artifacts'
