@@ -75,6 +75,7 @@ steps:
   displayName: 'Test plugin installation'
   inputs:
     command: 'build'
+    Dockerfile: '**/Dockerfile'
     arguments: 'KIBANA_VERSION=$(kibana_version)'
 
 - task: CopyFiles@2
