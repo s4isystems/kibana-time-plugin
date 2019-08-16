@@ -34,8 +34,9 @@ steps:
     script: 'git clone --depth 1 --branch $(kibana_branch) https://github.com/elastic/kibana.git $(Pipeline.Workspace)/kibana'
 
 - task: CmdLine@2
+  displayName: 'Set Kibana version'
   inputs:
-    script: 'jq'
+    script: mv package.json package.json.bak && jq '.version = "$(kibana_version)"' package.json.bak > package.json
 
 - task: NodeTool@0
   displayName: 'Install Node.js'
