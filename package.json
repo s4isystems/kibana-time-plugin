@@ -1,6 +1,6 @@
 {
   "name": "kibana-time-plugin",
-  "version": "1.0.0",
+  "version": "1.0.0-x",
   "kibana": {
     "version": "6.5.3",
     "templateVersion": "1.0.0"
