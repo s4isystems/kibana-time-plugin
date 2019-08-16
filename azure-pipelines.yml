@@ -15,9 +15,7 @@ strategy:
       kibana_version: 6.5.3
       kibana_branch: 6.5
       node_version: 8.14.0
-
-variables:
-  build_version: 1.0$(Rev:.r)-$(kibana_version)
+      build_version: 1.0$(Rev:.r)-$(kibana_version)
 
 # https://www.elastic.co/guide/en/kibana/6.7/development-plugin-resources.html
 # The Kibana directory must be named kibana, and your plugin directory must be 
