@@ -80,7 +80,9 @@ steps:
   displayName: 'Test plugin installation'
   inputs:
     command: 'build'
-    arguments: '--build-arg KIBANA_VERSION=$(kibana_version)'
+    arguments: |
+      --build-arg KIBANA_VERSION=$(kibana_version)
+      --build-arg PLUGIN_VERSION=$(build_version)
 
 - task: CopyFiles@2
   displayName: 'Copy build artifacts'
