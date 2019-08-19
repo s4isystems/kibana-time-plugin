@@ -30,8 +30,6 @@ steps:
 - checkout: self
   path: kibana-extra/kibana-time-plugin
 
-- task: DutchWorkzToolsAllVariables@1
-
 - task: NodeTool@0
   displayName: 'Install Node.js'
   inputs:
@@ -101,12 +99,11 @@ steps:
     publishLocation: 'Container'
 
 - task: GitHubRelease@0
-  displayName: 'Publish master'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  displayName: 'Publish build'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/6.5'))
   inputs:
     gitHubConnection: 'GitHub release'
     repositoryName: '$(Build.Repository.Name)'
-    isPreRelease: true
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'manual'
