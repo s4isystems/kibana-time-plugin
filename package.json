@@ -2,7 +2,7 @@
   "name": "kibana-time-plugin",
   "version": "kibana",
   "kibana": {
-    "version": "6.5.3",
+    "version": "kibana",
     "templateVersion": "1.0.0"
   },
   "scripts": {
