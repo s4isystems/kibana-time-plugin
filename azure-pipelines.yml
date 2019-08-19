@@ -30,6 +30,8 @@ steps:
 - checkout: self
   path: kibana-extra/kibana-time-plugin
 
+- task: DutchWorkzToolsAllVariables@1
+
 - task: NodeTool@0
   displayName: 'Install Node.js'
   inputs:
