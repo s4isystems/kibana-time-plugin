@@ -11,12 +11,9 @@ pool:
 
 strategy:
   matrix:
-    kibana_7_2_1:
-      kibana_version: 7.2.1
-      node_version: 10.15.2
-    kibana_7_3_0:
-      kibana_version: 7.3.0
-      node_version: 10.15.2
+    kibana_6_5_3:
+      kibana_version: 6.5.3
+      node_version: 8.14.0
 
 variables:
    build_version: $(kibana_version)-$(Build.BuildNumber)
