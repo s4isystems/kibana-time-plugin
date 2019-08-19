@@ -14,7 +14,7 @@ strategy:
   matrix:
     kibana_6_5_3:
       kibana_version: 6.5.3
-      kibana_branch: 6.5
+      kibana_branch: v6.5.3
       node_version: 8.14.0
       build_version: $(kibana_version)
 
