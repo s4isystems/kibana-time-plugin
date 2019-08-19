@@ -103,6 +103,7 @@ steps:
 
 - task: GitHubRelease@0
   displayName: 'Publish master'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
     gitHubConnection: 'GitHub release'
     repositoryName: '$(Build.Repository.Name)'
@@ -110,7 +111,7 @@ steps:
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'manual'
-    title: '$(build_version) for Kibana $(kibana_version)'
+    title: '$(build_version) (for Kibana $(kibana_version))'
     tag: '$(build_version)'
     compareWith: 'lastFullRelease'
     assets: '$(Build.ArtifactStagingDirectory)/*.zip'
