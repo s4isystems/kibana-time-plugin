@@ -13,7 +13,7 @@ strategy:
   matrix:
     kibana_7_3_0:
       kibana_version: 7.3.0
-      node_version: 8.14.0
+      node_version: 10.15.2
       build_version: $(kibana_version)
 
 # https://www.elastic.co/guide/en/kibana/6.7/development-plugin-resources.html
