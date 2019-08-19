@@ -5,16 +5,14 @@
 
 trigger:
 - master
-- 6.5
 
 pool:
   vmImage: 'ubuntu-latest'
 
 strategy:
   matrix:
-    kibana_6_5_3:
-      kibana_version: 6.5.3
-      kibana_branch: v6.5.3
+    kibana_7_3_0:
+      kibana_version: 7.3.0
       node_version: 8.14.0
       build_version: $(kibana_version)
 
@@ -48,7 +46,7 @@ steps:
 - task: CmdLine@2
   displayName: 'Clone Kibana'
   inputs:
-    script: 'git clone --depth 1 --branch $(kibana_branch) https://github.com/elastic/kibana.git $(Pipeline.Workspace)/kibana'
+    script: 'git clone --depth 1 --branch v$(kibana_version) https://github.com/elastic/kibana.git $(Pipeline.Workspace)/kibana'
 
 - task: Yarn@3
   displayName: 'Kibana bootstrap'
@@ -100,7 +98,6 @@ steps:
 
 - task: GitHubRelease@0
   displayName: 'Publish master'
-  #condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
     gitHubConnection: 'GitHub release'
     repositoryName: '$(Build.Repository.Name)'
