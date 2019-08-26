@@ -1,4 +1,7 @@
 # kibana-time-plugin
+
+[![Build Status](https://dev.azure.com/s4isystems/kibana-time-plugin/_apis/build/status/s4isystems.kibana-time-plugin?branchName=master)](https://dev.azure.com/s4isystems/kibana-time-plugin/_build/latest?definitionId=1&branchName=master)
+
 Widget to view and edit the time range from within dashboards. This plugin started as a work around for issue [Timepicker as part of embedded dashboard](https://github.com/elastic/kibana/issues/2739).
 
 ## Time Animation
