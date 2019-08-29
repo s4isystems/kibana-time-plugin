@@ -1,7 +1,5 @@
 import 'ui/angular-bootstrap';
-import 'plugins/kibana-time-plugin/lib/angular-bootstrap/css/btn-group.less';
-import 'plugins/kibana-time-plugin/lib/angular-bootstrap/css/carousel.less';
-import 'plugins/kibana-time-plugin/lib/angular-bootstrap/js/carousel.js';
+import 'plugins/kibana-time-plugin/bower_components/angular-bootstrap/ui-bootstrap-tpls.js';
 import 'plugins/kibana-time-plugin/bower_components/bootstrap-addons/dist/css/bootstrap-addons.css';
 import 'plugins/kibana-time-plugin/bower_components/bootstrap-addons/dist/js/bootstrap-addons.js';
 import 'plugins/kibana-time-plugin/time.less';
