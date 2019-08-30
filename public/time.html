@@ -4,14 +4,14 @@
   <carousel interval="0">
       <slide ng-if="vis.params.enable_quick" active="activeSlide.quick">
         <div style="display: inline-block;">
-          <br><strong><i aria-hidden="true" class="fa fa-clock-o"></i> Quick search: </strong>
+          <strong><i aria-hidden="true" class="fa fa-clock-o"></i> Quick search: </strong>
           <select ng-model="selectedQuick" ng-options="option.display for option in quickLists" ng-change="setQuick(selectedQuick)"></select>
         </div>
       </slide>
 
       <slide ng-if="vis.params.enable_relative" active="activeSlide.relative">
         <form ng-submit="setRelative()" class="form-inline">
-          <strong><i aria-hidden="true" class="fa fa-clock-o"></i> Relative search: </strong> From: 
+          <strong><i aria-hidden="true" class="fa fa-clock-o"></i> Relative search: </strong> From:
           <div style="display: inline-block;">
             <div class="form-group">
               <input
@@ -34,19 +34,15 @@
 
           <div style="display: inline-block;">
             <div class="form-group">
-              To: 
+              To:
               <input type="text" disabled class="form-control" value="Now">
             </div>
           </div>
 
           <div style="display: inline-block;">
-            <label>&nbsp;</label>
-            <br>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary" ng-disabled="!relative.preview">
-                Go
-              </button>
-            </div>
+            <button type="submit" class="btn btn-primary" ng-disabled="!relative.preview">
+              Go
+            </button>
           </div>
         </form>
       </slide>
@@ -56,21 +52,19 @@
           <div style="display: inline-block;">
             <strong><i aria-hidden="true" class="fa fa-clock-o"></i> Absolute search: </strong>
           </div>
+          From:
           <div style="display: inline-block;">
-            <label class="small" style="float:left;">
-              From: <span ng-show="!time.absolute_from"><i>Invalid Date</i></span>
-            </label>
+            <span ng-show="!time.absolute_from"><i>Invalid Date</i></span>
             <input type="text" required class="form-control" input-datetime="{{format}}" ng-model="time.absolute_from">
           </div>
 
+          To:
           <div style="display: inline-block;">
-            <label class="small" style="float:left;">
-              To: <span ng-show="!time.absolute_to"><i>Invalid Date</i></span>
-            </label>
+            <span ng-show="!time.absolute_to"><i>Invalid Date</i></span>
             <input type="text" required class="form-control" input-datetime="{{format}}" ng-model="time.absolute_to">
           </div>
 
-          <div style="display: inline-block;"><br>
+          <div style="display: inline-block;">
             <button class="btn btn-primary" ng-disabled="time.absolute_from > time.absolute_to || !time.absolute_from || !time.absolute_to" type="submit">
               Go
             </button>
