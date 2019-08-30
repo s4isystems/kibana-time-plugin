@@ -6,7 +6,7 @@ import { SimpleEmitter } from 'ui/utils/simple_emitter';
 import { timeUnits } from 'ui/timepicker/time_units';
 import { timefilter } from 'ui/timefilter';
 import { uiModules } from 'ui/modules';
-const module = uiModules.get('kibana/kibana-time-plugin', ['kibana', 'ktp-ui.bootstrap.carousel', 'BootstrapAddons']);
+const module = uiModules.get('kibana/kibana-time-plugin', ['kibana', 'ui.bootstrap.carousel', 'BootstrapAddons']);
 
 const msearchEmitter = new SimpleEmitter();
 module.config(function($httpProvider) {

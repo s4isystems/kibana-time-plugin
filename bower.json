@@ -8,6 +8,8 @@
   "homepage": "https://github.com/nreese/kibana-time-plugin",
   "private": true,
   "dependencies": {
-    "bootstrap-addons": "https://github.com/nreese/bootstrap-addons/files/851515/bootstrap-addons.zip"
+    "bootstrap-addons": "https://github.com/nreese/bootstrap-addons/files/851515/bootstrap-addons.zip",
+    "bootstrap": "3.3.7",
+    "angular-bootstrap": "0.12.1"
   }
 }

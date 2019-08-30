@@ -1,6 +1,8 @@
 @import (reference) "~ui/styles/mixins.less";
 
 .time-vis {
+  @import "bower_components/bootstrap/less/bootstrap";
+
   padding: 0;
   width: 100%;
 }
@@ -43,11 +45,19 @@
   }
   .carousel {
     height: 100%;
+    display: flex;
+  }
+  .carousel-inner {
+    margin: auto;
   }
   .carousel-indicators {
+    display: none;
     position: relative;
     top: 85%;
     bottom: 0px;
+  }
+  .input-datetime-format {
+    display: none;
   }
 }
 
