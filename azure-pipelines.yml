@@ -105,13 +105,14 @@ steps:
   displayName: 'Publish master'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
-    gitHubConnection: 'GitHub release'
+    gitHubConnection: 'github.com_dwickern'
     repositoryName: '$(Build.Repository.Name)'
-    isPreRelease: true
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'manual'
-    title: '$(build_version) (for Kibana $(kibana_version))'
     tag: '$(build_version)'
-    compareWith: 'lastFullRelease'
+    title: '$(build_version) (for Kibana $(kibana_version))'
     assets: '$(Build.ArtifactStagingDirectory)/*.zip'
+    isPreRelease: true
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
