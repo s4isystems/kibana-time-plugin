@@ -4,22 +4,22 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- 6.5
+- 6.8
 
 pool:
   vmImage: 'ubuntu-latest'
 
 strategy:
   matrix:
-    kibana_6_5_3:
-      kibana_version: 6.5.3
-      node_version: 8.14.0
+    kibana_6_8_22:
+      kibana_version: 6.8.22
+      node_version: 10.24.1
 
 variables:
    build_version: $(kibana_version)-$(Build.BuildNumber)
 
 # https://www.elastic.co/guide/en/kibana/6.7/development-plugin-resources.html
-# The Kibana directory must be named kibana, and your plugin directory must be 
+# The Kibana directory must be named kibana, and your plugin directory must be
 # located within the sibling kibana-extra folder, for example:
 # .
 # ├── kibana
@@ -100,7 +100,7 @@ steps:
 
 - task: GitHubRelease@0
   displayName: 'Publish build'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/6.5'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/6.8'))
   inputs:
     gitHubConnection: 'GitHub release'
     repositoryName: '$(Build.Repository.Name)'
