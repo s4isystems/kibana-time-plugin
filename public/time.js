@@ -5,7 +5,6 @@ import 'plugins/kibana-time-plugin/bower_components/bootstrap-addons/dist/js/boo
 import 'plugins/kibana-time-plugin/time.less';
 import 'plugins/kibana-time-plugin/timeController';
 import { VisFactoryProvider } from 'ui/vis/vis_factory';
-import { CATEGORY } from 'ui/vis/vis_category';
 import { VisTypesRegistryProvider } from 'ui/registry/vis_types';
 import visTemplate from 'plugins/kibana-time-plugin/time.html';
 import optionsTemplate from 'plugins/kibana-time-plugin/timeOptions.html';
@@ -18,9 +17,8 @@ function TimeVisProvider(Private) {
   return VisFactory.createAngularVisualization({
     name: 'time',
     title: 'Time widget',
-    icon: 'fa-clock-o',
+    icon: 'clock',
     description: 'Add time inputs to your dashboards.',
-    category: CATEGORY.OTHER,
     visConfig: {
       template: visTemplate,
       defaults: {
